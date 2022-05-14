@@ -39,71 +39,71 @@ public class JavaBasic01CourseMezt {
             operacion = entrada.nextInt();
 
             switch (operacion) {
-                case 1:
+                case 1 -> {
                     System.out.println("[1] Verificar si es numero par o impar");
                     System.out.println("--------------------------------------");
                     System.out.print(" Ingrese numero : ");
                     x = entrada.nextInt();
                     CicloIf.esNumeroPar(x);
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     System.out.println("[2] Suma de numeros");
                     System.out.println("-------------------");
                     System.out.print(" Ingrese numero : ");
                     x = entrada.nextInt();
                     CicloFor.sumaDeNumeros(x);
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("[3] Imprimir n numeros (while) ");
                     System.out.println("-------------------------------");
                     System.out.print(" Ingrese numero : ");
                     x = entrada.nextInt();
                     CicloWhile.imprimirNumeros1(x);
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     System.out.println("[4] Imprimir n numeros (do while) ");
                     System.out.println("----------------------------------");
                     System.out.print(" Ingrese numero : ");
                     x = entrada.nextInt();
                     CicloWhile.imprimirNumeros2(x);
-                    break;
-                case 5:
+                }
+                case 5 -> {
                     System.out.println("[5] ¿Que hora es?");
                     System.out.println("-------------------");
                     DateUtils.queHoraEs();
-                    break;
-                case 6:
+                }
+                case 6 -> {
                     System.out.println("[6] Acceso a metodo publico");
                     System.out.println("---------------------------");
                     System.out.print(" Ingrese su nombre : ");
                     cadena = entrada.next();
                     Metodos metodoPublico = new Metodos();
                     metodoPublico.metodoPublico(cadena);
-                    break;
-                case 7:
+                }
+                case 7 -> {
                     System.out.println("[7] Acceso a metodo privado");
                     System.out.println("---------------------------");
                     System.out.print(" Ingrese su nombre : ");
                     cadena = entrada.next();
                     Metodos metodoPrivado = new Metodos();
                     metodoPrivado.metodoGeneral(cadena, "Privado");
-                    break;
-                case 8:
+                }
+                case 8 -> {
                     System.out.println("[8] Acceso a metodo protegido");
                     System.out.println("-----------------------------");
                     System.out.print(" Ingrese su nombre : ");
                     cadena = entrada.next();
                     Metodos metodoProtegido = new Metodos();
                     metodoProtegido.metodoGeneral(cadena, "Protegido");
-                    break;
-                case 9:
+                }
+                case 9 -> {
                     System.out.println("[9] Quiero registrar carros en la tienda");
                     System.out.println("----------------------------------------");
                     carro = agregarCarroTienda();
                     System.out.println("El carro con codigo: " + carro.getCodigoCarro() 
                             + " y modelo: " + carro.getModelo() + " ha sido registrado");
-                    break;
-                case 10:
+                }
+                case 10 -> {
                     System.out.println("[10] Quiero comprar un carro");
                     System.out.println("----------------------------");
                     Persona persona = comprarCarro(carro);
@@ -115,13 +115,10 @@ public class JavaBasic01CourseMezt {
                     else {
                         System.out.println("===========!Muchas Gracias¡=========");
                         System.out.println("Gracias " + persona.getNombre() + " " + persona.getApellido()
-                            + " ha comprado el carro: " + persona.getCarro().getCodigoCarro() + " modelo: " + persona.getCarro().getModelo());
+                                + " ha comprado el carro: " + persona.getCarro().getCodigoCarro() + " modelo: " + persona.getCarro().getModelo());
                     }
-                    
-                    break;
-                default:
-                    System.exit(0);
-                    break;
+                }
+                default -> System.exit(0);
             }
         } while (operacion != 10);
     }
@@ -186,12 +183,12 @@ public class JavaBasic01CourseMezt {
         cadena = entrada.next();
         
         switch (cadena) {
-            case "S":
+            case "S" -> {
                 Double resta = persona.getCredito() - carro.getPrecio();
                 
                 if (resta < 0) {
                     System.out.println("[!] Usted no tiene suficiente credito para comprar el carro " + carro.getCodigoCarro()
-                    + " le falta US$: " + resta*-1);
+                            + " le falta US$: " + resta*-1);
                     persona.setCarro(null);
                 }
                 else {
@@ -199,14 +196,17 @@ public class JavaBasic01CourseMezt {
                     persona.setCarro(carro);
                 }
                 return persona;
-            case "N":
+            }
+            case "N" -> {
                 System.out.println("[!] Usted no ha elegido el carro");
                 persona.setCarro(null);
                 return persona;
-            default:
-                System.out.println("[!] Solo puede ingresar N (No) o S (Si).");
-                persona.setCarro(null);
-                return persona;
+            }
+            default -> {
+                    System.out.println("[!] Solo puede ingresar N (No) o S (Si).");
+                    persona.setCarro(null);
+                    return persona;
+            }
         }
         
     }
